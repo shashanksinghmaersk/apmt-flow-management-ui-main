@@ -1,0 +1,18 @@
+.fmp-filter-button {
+  position: relative;
+
+  &__trigger {
+    &-inner {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__counter {
+    margin-left: 16px;
+  }
+
+  &::part(button) {
+    background-color: var(--mds_brand_appearance_neutral_default_background-color);
+  }
+}

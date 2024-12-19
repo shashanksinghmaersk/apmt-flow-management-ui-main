@@ -1,0 +1,17 @@
+{
+  "id": "QCZ",
+  "vessel": "TEST VESSEL",
+  "title": "QCZ",
+  "andon": true,
+  "longCrane": false,
+  "inactive": false,
+  "mode": "FES",
+  "moveKind": "DISCHARGE",
+  "moveLocation": "03A",
+  "liftsPlanned": 12,
+  "liftsExecuted": 9,
+  "taktDelayTime": 1722487028,
+  "delayCode": null,
+  "taktDependencies": [],
+  "taktDestinations": null
+}

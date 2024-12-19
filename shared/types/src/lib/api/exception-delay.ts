@@ -1,0 +1,22 @@
+export type ExceptionDelay = {
+  exceptionId: number;
+  andonStatus: 'Open' | 'Closed';
+  che: string | null;
+  type: string | null;
+  investigation: 'Open' | 'Closed' | 'Not taken';
+  hardClosed: boolean;
+  doneBy: string | null;
+  started: number;
+  date: number | string;
+  duration: number | string | null;
+  stcm: string | null;
+  processArea: string | null;
+  processMin: string | null;
+  workInstruction: string | null;
+  whatHappened: string | null;
+  firstWhy: string | null;
+  secondWhy: string | null;
+  thirdWhy: string | null;
+  fourWhy: string | null;
+  fiveWhy: string | null;
+};

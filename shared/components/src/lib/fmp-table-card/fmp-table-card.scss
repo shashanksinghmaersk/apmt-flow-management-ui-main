@@ -1,0 +1,30 @@
+.fmp-table-card {
+  overflow: hidden;
+  background: var(--mds_brand_appearance_neutral_default_background-color);
+  border-radius: var(--metric-border-radius--large);
+  border: 1px solid var(--color-neutral-border);
+
+  &__title {
+    padding-bottom: 24px;
+    padding-top: 32px;
+    padding-left: 16px;
+    background: var(--mds_brand_appearance_neutral_default_background-color);
+  }
+
+  &__body {
+    position: relative;
+
+    &-header {
+      position: relative;
+      border-bottom: 1px solid var(--color-neutral-border);
+    }
+
+    &-content {
+      position: relative;
+    }
+  }
+
+  &--mobile {
+    border-radius: var(--metric-border-radius);
+  }
+}

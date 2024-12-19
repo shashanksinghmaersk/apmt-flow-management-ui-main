@@ -1,0 +1,11 @@
+.fmp-table-custom-cells {
+  padding: 0.25rem 0;
+
+  &--small {
+    padding: 0.125rem 0;
+  }
+
+  &--disabled {
+    opacity: 0.6;
+  }
+}

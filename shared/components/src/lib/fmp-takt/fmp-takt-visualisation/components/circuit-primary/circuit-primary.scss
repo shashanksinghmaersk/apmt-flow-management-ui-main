@@ -1,0 +1,28 @@
+.circuit-primary {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  border-radius: var(--mds_brand_border_medium_radius);
+  border: 4px solid var(--mds_brand_appearance_neutral_default_border-color);
+
+  &__item {
+    height: 90px;
+    top: -63px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &-pull {
+      width: 100%;
+    }
+
+    &-standby {
+      width: 100%;
+    }
+
+    &-under {
+      width: 100%;
+    }
+  }
+}

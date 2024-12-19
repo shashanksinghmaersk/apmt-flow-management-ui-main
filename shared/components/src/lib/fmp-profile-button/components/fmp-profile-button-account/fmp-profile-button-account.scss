@@ -1,0 +1,16 @@
+.fmp-profile-button-account {
+  &__title {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar {
+    margin-right: 8px;
+    margin-left: 4px;
+  }
+}

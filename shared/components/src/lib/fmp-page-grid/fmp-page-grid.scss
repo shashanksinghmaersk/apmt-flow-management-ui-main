@@ -1,0 +1,9 @@
+.fmp-page-grid {
+  display: grid;
+  gap: 24px;
+  row-gap: 24px;
+
+  &--mobile &__grid {
+    row-gap: 16px;
+  }
+}

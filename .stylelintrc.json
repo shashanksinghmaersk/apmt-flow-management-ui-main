@@ -1,0 +1,21 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "plugins": ["stylelint-no-unsupported-browser-features"],
+  "overrides": [
+    {
+      "files": ["*.scss", "*.css"],
+      "rules": {
+        "custom-property-pattern": null,
+        "selector-class-pattern": null,
+        "declaration-block-no-redundant-longhand-properties": null,
+        "plugin/no-unsupported-browser-features": [
+          true,
+          {
+            "browsers": ["chrome 64"],
+            "ignore": ["css-nesting"]
+          }
+        ]
+      }
+    }
+  ]
+}

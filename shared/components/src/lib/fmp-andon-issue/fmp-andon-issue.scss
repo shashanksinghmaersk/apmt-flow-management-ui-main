@@ -1,0 +1,31 @@
+.fmp-andon-issue {
+  display: flex;
+  align-items: center;
+
+  &__tag {
+    margin-right: 8px;
+  }
+
+  mc-tag::part(tag) {
+    width: 77px;
+    height: 28px;
+    border-radius: 4px;
+  }
+
+  &__body {
+    width: 100%;
+  }
+
+  &__message {
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      margin-right: 4px;
+    }
+  }
+
+  &__progressbar {
+    margin-top: 2px;
+  }
+}

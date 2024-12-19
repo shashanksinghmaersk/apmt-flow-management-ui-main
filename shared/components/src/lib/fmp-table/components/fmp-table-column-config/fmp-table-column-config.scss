@@ -1,0 +1,13 @@
+.fmp-table-column-config {
+  padding: 12px 16px;
+
+  &__list {
+    min-width: 180px;
+    list-style: none !important;
+
+    &-item {
+      list-style: none !important;
+      padding: 2px 0 !important;
+    }
+  }
+}

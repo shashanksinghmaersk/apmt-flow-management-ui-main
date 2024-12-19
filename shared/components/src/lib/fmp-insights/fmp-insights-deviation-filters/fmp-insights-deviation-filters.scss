@@ -1,0 +1,26 @@
+.fmp-insights-deviation-filters {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 53px;
+    z-index: 20;
+    cursor: pointer;
+
+    &--active {
+      cursor: default;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    height: 32px;
+    width: 53px;
+    z-index: 10;
+  }
+}

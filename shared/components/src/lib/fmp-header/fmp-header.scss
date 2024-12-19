@@ -1,0 +1,52 @@
+.fmp-header {
+  background-color: var(
+    --mds_brand_appearance_neutral_default_background-color
+  );
+  box-shadow: 0 0 15px 0 #c5c5c580;
+  display: flex;
+  align-items: center;
+
+  &__inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__info-area {
+    display: flex;
+    align-items: center;
+  }
+
+  &__action-area {
+    display: flex;
+    align-items: center;
+
+    &-spacer {
+      margin-right: 1.5rem;
+      height: 1.5rem;
+      width: 1px;
+      background-color: var(
+        --mds_brand_appearance_neutral_default_border-color
+      );
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+
+      & > * {
+        margin-right: 12px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &--mobile &__action-area-spacer {
+    margin-right: 16px;
+  }
+}

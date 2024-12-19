@@ -1,0 +1,18 @@
+.fmp-insights-details {
+  &__section {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+
+  &__reasons {
+    margin-left: 1.2rem !important;
+    list-style: disc !important;
+  }
+}

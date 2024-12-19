@@ -1,0 +1,89 @@
+name: Raise PR to deploy to APMT TPC
+run-name: Create PR to deploy image version=${{ github.event.inputs.image-tag }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      app-name:
+        description: 'App to be deployed'
+        type: choice
+        options:
+          - flow-management
+      environment-name:
+        description: 'Choose target environment name: cdt,sit,lab,prod'
+        type: environment
+        required: true
+      terminal-name:
+        description: 'Enter target terminal name:'
+        type: choice
+        required: true
+        options:
+          - tc1
+      image-tag:
+        description: 'Enter the Image tag version to be deployed'
+        required: true
+      deployment-jira-ref:
+        description: 'Enter the Jira ref number e.g. FS-123 (reqd. for SIT and above)'
+        required: false
+
+env:
+  APP_REPO: 'apmt-flow-management-ui'
+  IMAGE_PATH: 'harbor.maersk.io/apmt-cti-fes/apmt-flow-management-ui'
+  GITOPS_PATCH_FILE_NAME: 'flow-management-fe-version-patch.yaml'
+
+jobs:
+  pr-to-deploy-to-tpc:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment-name }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout common actions
+        uses: actions/checkout@v4
+        with:
+          repository: 'Maersk-Global/apmt-flow-common-github-actions'
+          token: ${{ secrets.GH_ACTIONS_PAT }}
+          path: '.github/actions/'
+
+      - name: Set ENVIRONMENT_TYPE & CLUSTER for input environments
+        id: set-env-type
+        run: |
+          echo "${{ inputs.environment-name }}"
+          if [ "${{ inputs.environment-name }}" == 'prod' ]; then
+            echo "higher"
+            echo "ENVIRONMENT_TYPE=higher" >> "$GITHUB_OUTPUT"
+            echo "CLUSTER=hybrid-cloud-prod-tpc51-tc1" >> "$GITHUB_OUTPUT"
+          elif [ "${{ inputs.environment-name }}" == 'preprod' ]; then
+            echo "higher"
+            echo "ENVIRONMENT_TYPE=higher" >> "$GITHUB_OUTPUT"
+            echo "CLUSTER=hybrid-cloud-prod-tpc51-tc1" >> "$GITHUB_OUTPUT"          
+          else
+            echo "lower"
+            echo "ENVIRONMENT_TYPE=lower" >> "$GITHUB_OUTPUT"
+            echo "CLUSTER=hybrid-cloud-cdt-tpc5-sharedlab" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Construct GITOPS_PATCH_FILE_PATH
+        id: set-gitops-path-file-path
+        run: |
+          echo "GITOPS_PATCH_FILE_PATH=envs/${{ steps.set-env-type.outputs.ENVIRONMENT_TYPE }}/${{ inputs.environment-name }}/${{ inputs.terminal-name }}/v0.1/${{ steps.set-env-type.outputs.CLUSTER }}/${{ inputs.app-name }}" >> "$GITHUB_OUTPUT"          
+
+      - name: Raise PR
+        id: raisepr
+        uses: './.github/actions/raise-pr-to-deploy-to-tpc'
+        with:
+          gitops-patch-file-path: ${{ steps.set-gitops-path-file-path.outputs.GITOPS_PATCH_FILE_PATH }}
+          gitops-patch-file-name: ${{ env.GITOPS_PATCH_FILE_NAME }}
+          image-tag-to-deploy: ${{ inputs.image-tag }}
+          image-path: ${{ env.IMAGE_PATH }}
+          app-repo: ${{ env.APP_REPO }}
+          github-token: ${{ secrets.GH_ACTIONS_PAT }}
+          terminal-name: ${{ inputs.terminal-name }}
+          environment-name: ${{ inputs.environment-name }}
+          deployment-jira-ref: ${{ inputs.deployment-jira-ref }}
+
+      - name: Print PR URL
+        run: echo "Access PR at ${{ steps.raisepr.outputs.pull-request-url }}"

@@ -1,0 +1,17 @@
+.fmp-menu-button {
+  position: relative;
+
+  &__menu {
+    mc-button {
+      background-color: var(
+        --mds_brand_appearance_neutral_default_background-color
+      );
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+  }
+}

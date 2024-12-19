@@ -1,0 +1,54 @@
+{
+  "DISCHARGE": "DSCH",
+  "LOAD": "Load",
+  "Long": "Long",
+  "TAKT Management Board": "TAKT Management Board",
+  "Monitor real time progress and dependencies": "Monitor real time progress and dependencies",
+  "Damage handling": "Damage handling",
+  "Lifts Planned": "Lifts Planned",
+  "Lifts Executed": "Lifts Executed",
+  "TAKT Delay time": "TAKT Delay time",
+  "api": {
+    "flowStatus": {
+      "vessel": "Vessel",
+      "longCrane": "Long",
+      "mode": "FES",
+      "id": "QCs"
+    }
+  },
+
+  "Flow Exceptions Management": "Flow Exceptions Management",
+  "Here you can find all your issues": "Here you can find all your issues",
+  "Tech, OPS & Flow AndOns": "Tech, OPS & Flow AndOns",
+  "Che": "Che",
+  "Type": "Type",
+  "Investigation status": "Investigation status",
+  "Last 24 hours": "Last 24 hours",
+  "Download": " Download",
+  "Customize": "Customize",
+
+  "Flow errors": "Flow errors",
+  "Object": "Object",
+  "Start time": "Start time",
+
+  "Insights": "Insights",
+  "Here you can find insights": "Here you can find insights",
+  "Truck Planning Deviations": "Truck Planning Deviations",
+  "Severity": "Severity",
+
+  "Standby & Pinning Stations": "Standby & Pinning Stations",
+  "Select Pinning, Standby and driving directions": "Select Pinning, Standby and driving directions",
+  "Assign Marked": "Assign Marked",
+  "Standby": "Standby",
+  "Load Pinning": "Load Pinning",
+  "Crane Lane": "Lane",
+  "Clear Marked": "Clear Marked",
+  "Mark Selected": "Mark Selected",
+  "Go Back": "Go Back",
+  "Pinning Cycle Time standards": "Pinning Cycle Time standards",
+  "Unpinning Cycle Time standards": "Unpinning Cycle Time standards",
+  "Remote Control": "Remote Control",
+  "Get remote view of all equipments": "Get remote view of all equipments",
+  "Search for CHE ID": "Search for CHE ID",
+  "Search": "Search"
+}

@@ -1,0 +1,33 @@
+.fmp-dropdown {
+  &-trigger {
+    overflow: visible;
+  }
+
+  &-modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 9999;
+    border-radius: var(--metric-border-radius--large);
+    border: 1px solid var(--mds_brand_appearance_neutral_default_border-color);
+    background-color: var(
+      --mds_brand_appearance_neutral_default_background-color
+    );
+
+    &--elevation-0 {
+      box-shadow: var(--box-shadow-0);
+    }
+
+    &--elevation-1 {
+      box-shadow: var(--box-shadow-1);
+    }
+
+    &--elevation-2 {
+      box-shadow: var(--box-shadow-2);
+    }
+
+    &__inner {
+      min-height: 100%;
+    }
+  }
+}

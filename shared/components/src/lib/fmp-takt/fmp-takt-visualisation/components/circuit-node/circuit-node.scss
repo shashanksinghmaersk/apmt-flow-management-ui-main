@@ -1,0 +1,71 @@
+.circuit-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__background {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__truck {
+    z-index: 20;
+    &-blank {
+      height: 24px;
+      width: 33px;
+    }
+  }
+
+  &__title {
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+
+    & > *:nth-child(2) {
+      margin-left: 4px;
+    }
+  }
+
+  &__cheid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+
+    mc-icon {
+      margin-right: 4px;
+    }
+
+    mc-tag {
+      margin-right: 4px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &::part(tag) {
+        border-radius: var(--mds_brand_border_small_radius);
+      }
+
+      &::part(text-and-icon-labels) {
+        font-weight: 500;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &--qc &__title,
+  &--rtg &__title {
+    position: relative;
+    top: -22px;
+  }
+}

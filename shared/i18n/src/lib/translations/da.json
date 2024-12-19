@@ -1,0 +1,53 @@
+{
+  "DISCHARGE": "DSCH",
+  "LOAD": "Load",
+  "Long": "Long",
+  "TAKT Management Board": "TAKT Administration & Kontrol",
+  "Monitor real time progress and dependencies": "Overvåg forløb og hændelser",
+  "Damage handling": "Skadekontrol",
+  "Lifts Planned": "Løft Planlagt",
+  "Lifts Executed": "Løft Udført",
+  "TAKT Delay time": "TAKT Forsinkelse",
+  "api": {
+    "flowStatus": {
+      "vessel": "Skib",
+      "longCrane": "Lang",
+      "mode": "FES",
+      "id": "QCs"
+    }
+  },
+
+  "Flow Exceptions Management": "Flow undtagelsesstyring",
+  "Here you can find all your issues": "Her kan du finde alle dine problemer",
+  "Tech, OPS & Flow AndOns": "Tech, OPS Flow og sOns",
+  "Che": "Che",
+  "Type": "Type",
+  "Investigation status": "Efterforskningsstatus",
+  "Last 24 hours": "Sidste 24 timer",
+  "Download": "Hent",
+  "Customize": "Tilpas",
+
+  "Flow errors": "Flow fejl",
+  "Object": "Objekt",
+  "Start time": "Starttidspunkt",
+
+  "Insights": "Indsigt",
+  "Here you can find insights": "Her kan du finde indsigt",
+  "Truck Planning Deviations": "Truck Planlægning Afvigelse",
+  "Severity": "Alvorlighed",
+
+  "Standby & Pinning Stations": "Standby og fastgørelsesstationer",
+  "Select Pinning, Standby and driving directions": "Vælg Fastgøring, Standby og kørselsvejledning",
+  "Assign Marked": "Tildel markeret",
+  "Standby": "Stå ved",
+  "Load Pinning": "Belastningsfastgørelse",
+  "Crane Lane": "Bane",
+  "Clear Marked": "Ryd markeret",
+  "Mark Selected": "Markér valgt",
+  "Go Back": "Gå tilbage",
+
+  "Remote Control": "fjern betjening",
+  "Get remote view of all equipments": "Få fjernsyn til alt udstyr",
+  "Search for CHE ID": "Søg efter CHE ID",
+  "Search": "Søge"
+}

@@ -1,0 +1,18 @@
+.fmp-tag {
+  &--critical {
+    mc-tag {
+      &::part(tag) {
+        background-color: var(
+          --mds_brand_appearance_error_default_background-color
+        );
+        color: var(--mds_brand_appearance_error_default_on-background-color);
+        border: 1px var(--mds_brand_appearance_error_default_background-color)
+          solid;
+      }
+
+      &::part(icon) {
+        fill: var(--mds_brand_appearance_error_default_on-background-color);
+      }
+    }
+  }
+}

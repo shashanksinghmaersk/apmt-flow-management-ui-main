@@ -1,0 +1,42 @@
+.fmp-window {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+
+    &-title {
+      display: flex;
+      align-items: center;
+
+      &-icon {
+        margin-right: 0.5rem;
+      }
+    }
+
+    &-action {
+      display: flex;
+
+      &-button {
+        display: flex;
+        align-items: center;
+        align-items: center;
+        border: 1px solid
+          var(--mds_brand_appearance_neutral_default_border-color);
+        padding: 0.125rem;
+        margin-right: 0.5rem;
+        border-radius: var(--metric-border-radius--small);
+        cursor: pointer;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

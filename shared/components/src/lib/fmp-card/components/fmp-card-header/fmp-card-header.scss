@@ -1,0 +1,45 @@
+.fmp-card-header {
+  margin-bottom: 1rem;
+
+  &__title-or-utility,
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--small &__title-or-utility {
+    min-height: 28px;
+  }
+
+  &--medium &__title-or-utility {
+    min-height: 38px;
+  }
+
+  &--large &__title-or-utility {
+    min-height: 42px;
+  }
+
+  &__body {
+    margin-top: 1rem;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      & > *:first-child {
+        line-height: 1;
+      }
+    }
+
+    &-icon {
+      margin-right: 0.75rem;
+    }
+  }
+
+  &__utility {
+    justify-self: flex-end;
+  }
+}

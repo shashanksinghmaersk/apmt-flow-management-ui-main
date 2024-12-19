@@ -1,0 +1,26 @@
+.fmp-traffic-buffer-panel {
+  position: fixed;
+  bottom: 0;
+  right: 36px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transform: translateY(0);
+  transition: transform 350ms ease-in-out;
+  z-index: 30;
+
+  &__body {
+    margin-top: 16px;
+
+    & > * {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--collapsed {
+    transform: translateY(calc(100% - 52px));
+  }
+}

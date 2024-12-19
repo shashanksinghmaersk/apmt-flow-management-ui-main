@@ -1,0 +1,15 @@
+.fmp-traffic-action-panel {
+  position: absolute;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  & > * {
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

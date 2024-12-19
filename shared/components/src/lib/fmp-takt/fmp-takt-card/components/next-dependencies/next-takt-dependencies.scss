@@ -1,0 +1,58 @@
+.next-takt-dependencies {
+  display: flex;
+
+  &--mobile {
+    flex-direction: column;
+  }
+
+  &__error {
+    flex-basis: 50%;
+
+    & > * {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--mobile &__error {
+    flex-basis: 100%;
+
+    & > * {
+      margin-bottom: 8px;
+    }
+  }
+
+  &--single-column &__warning,
+  &--single-column &__error {
+    flex-basis: 100%;
+  }
+
+  &__warning {
+    flex-basis: 50%;
+    margin-left: 12px;
+
+    & > * {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--mobile &__warning {
+    flex-basis: 100%;
+    margin-left: 0;
+
+    & > * {
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

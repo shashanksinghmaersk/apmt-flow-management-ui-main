@@ -1,0 +1,19 @@
+.circuit-secondary {
+  position: relative;
+  height: 120px;
+  width: 100%;
+  border-radius: var(--mds_brand_border_medium_radius);
+  border: 4px solid var(--mds_brand_appearance_neutral_default_border-color);
+
+  &__item {
+    height: 120px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &--rtg {
+      margin-top: -92px;
+    }
+  }
+}

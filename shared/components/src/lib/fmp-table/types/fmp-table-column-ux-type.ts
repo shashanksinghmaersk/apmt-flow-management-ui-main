@@ -1,0 +1,16 @@
+export type FmpTableColumnUxType =
+  | 'Action'
+  | 'Boolean'
+  | 'DateTime'
+  | 'EpochTimer'
+  | 'Icon'
+  | 'Input'
+  | 'ModalInput'
+  | 'Number'
+  | 'SelectOptions'
+  | 'StatusBackground'
+  | 'String'
+  | 'Tag'
+  | 'Text'
+  | 'Title'
+  | 'Typeahead';

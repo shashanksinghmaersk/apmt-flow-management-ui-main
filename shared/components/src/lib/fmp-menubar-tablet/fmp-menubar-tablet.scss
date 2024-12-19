@@ -1,0 +1,16 @@
+.fmp-menubar-tablet {
+  &__button {
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+
+  &__modal {
+    position: fixed;
+    background-color: var(--mds_foundations_body_background-color);
+    padding-top: 24px;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

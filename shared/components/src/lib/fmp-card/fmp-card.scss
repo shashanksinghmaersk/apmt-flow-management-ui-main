@@ -1,0 +1,27 @@
+.fmp-card {
+  padding: 1rem;
+  border-radius: var(--metric-border-radius--large);
+  border: 1px solid var(--mds_brand_appearance_neutral_default_border-color);
+  box-shadow: var(--box-shadow-0);
+  background-color: var(--mds_brand_appearance_neutral_default_background-color);
+
+  &-elevation {
+    &--0 {
+      box-shadow: var(--box-shadow-0);
+    }
+    &--1 {
+      box-shadow: var(--box-shadow-1);
+    }
+    &--2 {
+      box-shadow: var(--box-shadow-2);
+    }
+  }
+
+  &--small {
+    padding: 0.75rem;
+  }
+
+  &--no-padding {
+    padding: 0;
+  }
+}

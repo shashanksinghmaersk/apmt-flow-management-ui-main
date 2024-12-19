@@ -1,0 +1,20 @@
+.fmp-notification {
+  position: relative;
+  width: 360px;
+  min-height: 100px;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  &__header {
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      margin-right: 12px;
+    }
+  }
+
+  &__body {
+    margin-top: 8px;
+  }
+}

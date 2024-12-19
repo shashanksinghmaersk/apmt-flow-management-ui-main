@@ -1,0 +1,26 @@
+.fmp-lift-card {
+  width: 100%;
+  height: 59px;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: var(--mds_brand_appearance_neutral_default_border-color);
+  padding: 4px 8px;
+  background-color: var(
+    --mds_brand_appearance_neutral_weakest_background-color
+  );
+
+  &__label {
+    height: 15px;
+    color: var(--mds_brand_appearance_neutral_weak_text-color);
+  }
+
+  &__actual {
+    display: flex;
+    height: 32px;
+    align-items: center;
+
+    &-number {
+      color: var(--mds_brand_appearance_neutral_default_text-color);
+    }
+  }
+}

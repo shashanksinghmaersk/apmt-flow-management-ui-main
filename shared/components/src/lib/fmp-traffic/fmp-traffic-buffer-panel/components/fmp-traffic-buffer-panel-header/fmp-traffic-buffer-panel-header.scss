@@ -1,0 +1,39 @@
+.fmp-traffic-buffer-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    &-title {
+      margin-right: 12px;
+    }
+
+    &-data {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin: 0 6px;
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+
+        & *:first-child {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  &__action {
+    mc-icon::part(icon) {
+      fill: var(--mds_brand_appearance_primary_default_background-color);
+    }
+  }
+}

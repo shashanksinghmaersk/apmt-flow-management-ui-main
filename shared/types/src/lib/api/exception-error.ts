@@ -1,0 +1,22 @@
+export type ExceptionError = {
+  object: string;
+  exceptionId: string;
+  andonStatus: 'Open' | 'Closed';
+  investigation: 'Open' | 'Closed' | 'Not Taken';
+  hardClosed: boolean;
+  doneBy: string | null;
+  started: string | number;
+  date: string;
+  duration: string | number;
+  description: string;
+  stcm: string | null;
+  processArea: string;
+  processMin: string;
+  workInstruction: string;
+  whatHappened: string;
+  firstWhy: string;
+  secondWhy: string;
+  thirdWhy: string;
+  fourWhy: string;
+  fiveWhy: string;
+};

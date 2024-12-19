@@ -1,0 +1,21 @@
+{
+  "exceptionId": 0,
+  "andonStatus": "Closed",
+  "che": "TT",
+  "type": "Ops",
+  "investigation": "Open",
+  "doneBy": null,
+  "started": 1722660281,
+  "date": 1722660281,
+  "duration": "00:00:06",
+  "stcm": null,
+  "processArea": null,
+  "processMin": null,
+  "workInstruction": null,
+  "whatHappened": null,
+  "firstWhy": null,
+  "secondWhy": null,
+  "thirdWhy": null,
+  "fourWhy": null,
+  "fiveWhy": null
+}

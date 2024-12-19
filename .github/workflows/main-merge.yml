@@ -1,0 +1,149 @@
+name: Merge
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.github/workflows**'
+      - '.husky'
+      - '.nx'
+      - '.verdaccio'
+      - '.vscode'
+      - 'node_modules'
+      - 'tools'
+
+env:
+  GH_USERNAME: apmt-flow-automation-maersk
+  GH_USEREMAIL: Rahul.Roy1@maersk.com
+  MVN_SERVER_USERNAME: ${{ secrets.MDN_NEXUS_READ_USERNAME }}
+  MVN_SERVER_PASSWORD: ${{ secrets.MDN_NEXUS_READ_PASSWORD }}
+  MVN_GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_PAT }}
+  harbor_container_registry: harbor.maersk.io/apmt-cti-fes
+  repository_owner: maersk-global
+  HARBOR_USERNAME: ${{ secrets.HARBOR_USERNAME }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  CI:
+    name: Test & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up NPM registry
+        uses: bduff9/use-npmrc@v1.3
+        with:
+          dot-npmrc: ${{ secrets.nexus_github_npmrc }}
+
+      - name: Install dependencies
+        run: |
+          export NODE_OPTIONS="--max-old-space-size=4096"
+          npm i --force
+
+      - name: Run format check
+        run: npm run format
+
+      - name: Run NX CI targets
+        run: npx nx run-many --targets=stylelint,typecheck,test,build --parallel=3
+
+      - name: Run NX CI lint
+        run: npm run lint
+
+      - name: Run NX Build
+        run: npm run build
+
+  POLARIS:
+    name: Polaris Quality Check
+    uses: Maersk-Global/github-reusable-workflows/.github/workflows/polaris-scan.yml@main
+    secrets: inherit
+    needs: [CI]
+
+  CODEQL:
+    name: CodeQL Quality Check
+    uses: Maersk-Global/github-reusable-workflows/.github/workflows/codeql-scan.yml@main
+    secrets: inherit
+    needs: [CI]
+
+  CD:
+    name: Push image to Harbor
+    runs-on: ubuntu-latest
+    needs: [CI, CODEQL, POLARIS]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up NPM registry
+        uses: bduff9/use-npmrc@v1.3
+        with:
+          dot-npmrc: ${{ secrets.nexus_github_npmrc }}
+
+      - name: Install dependencies
+        run: |
+          export NODE_OPTIONS="--max-old-space-size=4096"
+          npm install
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Log in to the Harbor Container registry
+        uses: docker/login-action@v3.1.0
+        with:
+          registry: ${{ env.harbor_container_registry }}
+          username: ${{ env.HARBOR_USERNAME }}
+          password: ${{ secrets.HARBOR_PUSH_TOKEN }}
+
+      - name: Get Repository name
+        id: repo_branch
+        run: |
+          REPOSITORY_NAME="$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}')"
+          echo "repository_name=$REPOSITORY_NAME" >> $GITHUB_OUTPUT
+
+      - name: this_date
+        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
+
+      - name: Prepare Docker Image Tag
+        id: image_tag
+        run: |
+          echo "IMAGE_TAG=$(echo ${{ env.harbor_container_registry }}/${{ steps.repo_branch.outputs.repository_name }}:$(echo ${{ github.ref_name }} | sed 's/[^a-zA-Z0-9\-\_]/_/g' )_${{ github.run_number }}_${{ env.DATE }})" >> $GITHUB_OUTPUT
+
+      - name: Print docker image tag
+        run: echo 'Docker Image tag is -' ${{ steps.image_tag.outputs.IMAGE_TAG }}
+
+      - name: Build and Push Docker image to Harbor Container Registry
+        uses: docker/build-push-action@v5.3.0
+        with:
+          context: .
+          file: ./Dockerfile
+          tags: ${{ steps.image_tag.outputs.IMAGE_TAG }},${{ env.harbor_container_registry }}/${{ steps.repo_branch.outputs.repository_name }}:latest
+          push: true
+          build-args: |
+            artifactversion=${{ steps.artifact-build-version.outputs.new_version }}
+            GIT_USER=${{env.GH_USERNAME}}
+            GIT_TOKEN=${{ secrets.GH_ACTIONS_PAT }}
+
+      - name: Checkout wiki code
+        uses: actions/checkout@v4
+        with:
+          repository: ${{github.repository}}.wiki
+          path: markdown
+
+      - name: Update latest Image Tag Version to wiki
+        run: |
+          cd markdown
+          ImgTag_Version="$( echo "${{ steps.image_tag.outputs.IMAGE_TAG }}" | awk -F : '{print $2}')"
+          var=$(sed '5q;d' Home.md)
+          sed -i "5s/$var/DockerImageTag = $ImgTag_Version/" Home.md
+          git add Home.md
+          git config --global user.name '${{env.GH_USERNAME}}'
+          git config --global user.email '${{env.GH_USEREMAIL}}'          
+          git commit -m 'Auto commiting build Image Tag Version from Github workflow' --allow-empty
+          git push

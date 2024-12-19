@@ -1,0 +1,54 @@
+.fmp-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &__background {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(53, 53, 53, 0.8);
+    opacity: 0.8;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__modal {
+    background-color: var(--mds_foundations_modal_background-color);
+    box-shadow: var(--box-shadow-2);
+    position: fixed;
+    top: 10%;
+    right: 0;
+    bottom: 0;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--mds_foundations_modal_heading_padding-top);
+      padding-bottom: var(--mds_foundations_modal_heading_padding-bottom);
+      padding-left: var(--mds_foundations_modal_heading_padding-left);
+      padding-right: var(--mds_foundations_modal_heading_padding-right);
+
+      &-title {
+        margin-top: var(--mds_foundations_modal_heading_title_margin-top);
+      }
+
+      &-end {
+        display: flex;
+        align-items: flex-start;
+        cursor: pointer;
+        margin-left: 2rem;
+      }
+    }
+
+    &-main {
+      padding-top: var(--mds_foundations_modal_heading_padding-top);
+      padding-bottom: var(--mds_foundations_modal_heading_padding-bottom);
+      padding-left: var(--mds_foundations_modal_heading_padding-left);
+      padding-right: var(--mds_foundations_modal_heading_padding-right);
+    }
+  }
+}

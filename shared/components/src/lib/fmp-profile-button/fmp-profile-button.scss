@@ -1,0 +1,33 @@
+.fmp-profile-button {
+  &__trigger {
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+  }
+
+  mc-popover::part(container) {
+    z-index: 100;
+  }
+
+  &__content {
+    &-item {
+      margin: 16px 12px;
+      min-width: 300px;
+    }
+
+    &-list {
+      & mc-list::part(list) {
+        border-left: 0 none;
+        border-right: 0 none;
+        border-bottom: 0 none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      & mc-list-item::part(button) {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+}

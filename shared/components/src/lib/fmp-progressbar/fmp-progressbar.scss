@@ -1,0 +1,10 @@
+.fmp-progressbar {
+  position: relative;
+
+  &__inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+}

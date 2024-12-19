@@ -1,0 +1,14 @@
+.text-value {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+}

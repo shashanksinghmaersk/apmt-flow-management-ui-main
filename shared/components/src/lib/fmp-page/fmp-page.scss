@@ -1,0 +1,21 @@
+.fmp-page {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+
+    &-titles {
+      margin-right: 16px;
+    }
+
+    &-action {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &--mobile &__header {
+    margin-bottom: 16px;
+  }
+}

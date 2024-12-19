@@ -1,0 +1,116 @@
+name: Sonar Quality Gate
+
+on:
+  workflow_call:
+    secrets:
+      nexus_github_npmrc:
+        required: true
+      mdn_sonarqube_host:
+        required: true
+      mdn_sonarqube_token:
+        required: true
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.push.head_commit || github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Update labels
+        uses: actions/github-script@v7
+        if: ${{ github.event == 'pull_request' }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labels = await github.rest.issues.listLabelsOnIssue({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            labels.data.forEach(label => {
+              if (['Unit tests failing', 'Sonar failing'].includes(label)) {
+                github.rest.issues.removeLabel({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label
+                });
+              }
+            })
+
+      - name: Set up npm registry
+        uses: bduff9/use-npmrc@v1.3
+        with:
+          dot-npmrc: ${{ secrets.nexus_github_npmrc }}
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Build project
+        run: npm run build
+
+      - name: Run tests with coverage
+        run: npm run test:coverage
+
+      - name: Add Unit test labels
+        if: ${{ failure() && github.event == 'pull_request' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Unit tests failing']
+            })
+
+      - name: Cancel run on unit test failure
+        uses: actions/github-script@v7
+        id: checkunittest
+        if: ${{ failure() }}
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            console.log('Cancelling ...');
+            const run_id = "${{ github.run_id }}";
+            await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id });
+            return 'stop'
+          result-encoding: string
+
+      - name: Waiting for unit test cancellation
+        run: sleep 20
+        if: steps.checkunittest.outputs.result == 'stop'
+
+      - name: SonarQube
+        id: sonar
+        if: ${{ success() }}
+        uses: Maersk-Global/github-actions/SonarQube@main
+        with:
+          host: ${{ secrets.mdn_sonarqube_host }}
+          login: ${{ secrets.mdn_sonarqube_token }}
+          extra_sonar_args: -Dsonar.sources=apps,domain,feature,shared,tooling -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info -Dsonar.language=ts
+        env:
+          BROWSERSLIST_IGNORE_OLD_DATA: true
+
+      - name: Add Sonar labels
+        if: ${{ github.event == 'pull_request' && steps.sonar.outcome == 'failure' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Sonar failing']
+            })

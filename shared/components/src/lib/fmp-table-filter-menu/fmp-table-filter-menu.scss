@@ -1,0 +1,10 @@
+.fmp-table-filter-menu {
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-width: 12rem;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}

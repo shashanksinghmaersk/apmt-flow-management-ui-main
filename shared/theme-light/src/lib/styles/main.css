@@ -1,0 +1,22 @@
+html {
+  font-family:
+    'Maersk Text',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Microsoft JhengHei',
+    'Microsoft Yahei',
+    '微软雅黑',
+    STXihei,
+    '华文细黑',
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

@@ -1,0 +1,22 @@
+.lift-cards {
+  &__main {
+    display: flex;
+
+    & > * {
+      margin-right: 8px;
+      flex-grow: 1;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-takt-delay {
+      min-width: 165px;
+
+      &--mobile {
+        margin-top: 8px;
+      }
+    }
+  }
+}

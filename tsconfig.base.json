@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "baseUrl": ".",
+    "paths": {
+      "@fes/shared-api": ["shared/api/src/index.ts"],
+      "@fes/shared-components": ["shared/components/src/index.ts"],
+      "@fes/shared-hooks": ["shared/hooks/src/index.ts"],
+      "@fes/shared-i18n": ["shared/i18n/src/index.ts"],
+      "@fes/shared-mocks": ["shared/mocks/src/index.ts"],
+      "@fes/shared-store": ["shared/store/src/index.ts"],
+      "@fes/shared-theme": ["shared/theme/src/index.ts"],
+      "@fes/shared-theme-dark": ["shared/theme-dark/src/index.ts"],
+      "@fes/shared-theme-light": ["shared/theme-light/src/index.ts"],
+      "@fes/shared-types": ["shared/types/src/index.ts"],
+      "@fes/shared-utilities": ["shared/utilities/src/index.ts"],
+      "@fes/tooling": ["tooling/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

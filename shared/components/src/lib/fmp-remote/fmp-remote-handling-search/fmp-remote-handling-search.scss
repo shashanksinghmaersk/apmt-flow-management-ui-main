@@ -1,0 +1,13 @@
+.fmp-remote-handling-search-field {
+  display: flex;
+  margin-bottom: 14px;
+
+  &__input {
+    width: 25%;
+  }
+
+  &__button {
+    align-self: end;
+    margin-left: 14px;
+  }
+}

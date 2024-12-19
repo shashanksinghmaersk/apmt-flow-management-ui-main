@@ -1,0 +1,243 @@
+:root {
+  /* NEUTRAL */
+  --color-neutral-background: var(
+    --mds_brand_appearance_neutral_default_background-color
+  );
+  --color-neutral-text: var(--mds_brand_appearance_neutral_default_text-color);
+  --color-neutral-on-background: var(
+    --mds_brand_appearance_neutral_default_on-background-color
+  );
+  --color-neutral-border: var(
+    --mds_brand_appearance_neutral_default_border-color
+  );
+  --color-neutral-background--weak: var(
+    --mds_brand_appearance_neutral_weak_background-color
+  );
+  --color-neutral-text--weak: var(
+    --mds_brand_appearance_neutral_weak_text-color
+  );
+  --color-neutral-on-background--weak: var(
+    --mds_brand_appearance_neutral_weak_on-background-color
+  );
+  --color-neutral-border--weak: var(
+    --mds_brand_appearance_neutral_weak_border-color
+  );
+  --color-neutral-background--subtle: var(
+    --mds_brand_appearance_neutral_subtle_background-color
+  );
+  --color-neutral-text--subtle: var(
+    --mds_brand_appearance_neutral_subtle_text-color
+  );
+  --color-neutral-on-background--subtle: var(
+    --mds_brand_appearance_neutral_subtle_on-background-color
+  );
+  --color-neutral-border--subtle: var(
+    --mds_brand_appearance_neutral_subtle_border-color
+  );
+
+  /* PRIMARY */
+  --color-primary-background: var(
+    --mds_brand_appearance_primary_default_background-color
+  );
+  --color-primary-text: var(--mds_brand_appearance_primary_default_text-color);
+  --color-primary-on-background: var(
+    --mds_brand_appearance_primary_default_on-background-color
+  );
+  --color-primary-border: var(
+    --mds_brand_appearance_primary_default_border-color
+  );
+  --color-primary-background--weak: var(
+    --mds_brand_appearance_primary_weak_background-color
+  );
+  --color-primary-text--weak: var(
+    --mds_brand_appearance_primary_weak_text-color
+  );
+  --color-primary-on-background--weak: var(
+    --mds_brand_appearance_primary_weak_on-background-color
+  );
+  --color-primary-border--weak: var(
+    --mds_brand_appearance_primary_weak_border-color
+  );
+  --color-primary-background--subtle: var(
+    --mds_brand_appearance_primary_subtle_background-color
+  );
+  --color-primary-text--subtle: var(
+    --mds_brand_appearance_primary_subtle_text-color
+  );
+  --color-primary-on-background--subtle: var(
+    --mds_brand_appearance_primary_subtle_on-background-color
+  );
+  --color-primary-border--subtle: var(
+    --mds_brand_appearance_primary_subtle_border-color
+  );
+
+  /* SECONDARY */
+  --color-secondary-background: var(
+    --mds_brand_appearance_secondary_default_background-color
+  );
+  --color-secondary-text: var(
+    --mds_brand_appearance_secondary_default_text-color
+  );
+  --color-secondary-on-background: var(
+    --mds_brand_appearance_secondary_default_on-background-color
+  );
+  --color-secondary-border: var(
+    --mds_brand_appearance_secondary_default_border-color
+  );
+  --color-secondary-background--weak: var(
+    --mds_brand_appearance_secondary_weak_background-color
+  );
+  --color-secondary-text--weak: var(
+    --mds_brand_appearance_secondary_weak_text-color
+  );
+  --color-secondary-on-background--weak: var(
+    --mds_brand_appearance_secondary_weak_on-background-color
+  );
+  --color-secondary-border--weak: var(
+    --mds_brand_appearance_secondary_weak_border-color
+  );
+  --color-secondary-background--subtle: var(
+    --mds_brand_appearance_secondary_subtle_background-color
+  );
+  --color-secondary-text--subtle: var(
+    --mds_brand_appearance_secondary_subtle_text-color
+  );
+  --color-secondary-on-background--subtle: var(
+    --mds_brand_appearance_secondary_subtle_on-background-color
+  );
+  --color-secondary-border--subtle: var(
+    --mds_brand_appearance_secondary_subtle_border-color
+  );
+
+  /* SUCCESS */
+  --color-success-background: var(
+    --mds_brand_appearance_success_default_background-color
+  );
+  --color-success-text: var(--mds_brand_appearance_success_default_text-color);
+  --color-success-on-background: var(
+    --mds_brand_appearance_success_default_on-background-color
+  );
+  --color-success-border: var(
+    --mds_brand_appearance_success_default_border-color
+  );
+  --color-success-background--weak: var(
+    --mds_brand_appearance_success_weak_background-color
+  );
+  --color-success-text--weak: var(
+    --mds_brand_appearance_success_weak_text-color
+  );
+  --color-success-on-background--weak: var(
+    --mds_brand_appearance_success_weak_on-background-color
+  );
+  --color-success-border--weak: var(
+    --mds_brand_appearance_success_weak_border-color
+  );
+  --color-success-background--subtle: var(
+    --mds_brand_appearance_success_subtle_background-color
+  );
+  --color-success-text--subtle: var(
+    --mds_brand_appearance_success_subtle_text-color
+  );
+  --color-success-on-background--subtle: var(
+    --mds_brand_appearance_success_subtle_on-background-color
+  );
+  --color-success-border--subtle: var(
+    --mds_brand_appearance_success_subtle_border-color
+  );
+
+  /* INFO */
+  --color-info-background: var(
+    --mds_brand_appearance_info_default_background-color
+  );
+  --color-info-text: var(--mds_brand_appearance_info_default_text-color);
+  --color-info-on-background: var(
+    --mds_brand_appearance_info_default_on-background-color
+  );
+  --color-info-border: var(--mds_brand_appearance_info_default_border-color);
+  --color-info-background--weak: var(
+    --mds_brand_appearance_info_weak_background-color
+  );
+  --color-info-text--weak: var(--mds_brand_appearance_info_weak_text-color);
+  --color-info-on-background--weak: var(
+    --mds_brand_appearance_info_weak_on-background-color
+  );
+  --color-info-border--weak: var(--mds_brand_appearance_info_weak_border-color);
+  --color-info-background--subtle: var(
+    --mds_brand_appearance_info_subtle_background-color
+  );
+  --color-info-text--subtle: var(--mds_brand_appearance_info_subtle_text-color);
+  --color-info-on-background--subtle: var(
+    --mds_brand_appearance_info_subtle_on-background-color
+  );
+  --color-info-border--subtle: var(
+    --mds_brand_appearance_info_subtle_border-color
+  );
+
+  /* WARNING */
+  --color-warning-background: var(
+    --mds_brand_appearance_warning_default_background-color
+  );
+  --color-warning-text: var(--mds_brand_appearance_warning_default_text-color);
+  --color-warning-on-background: var(
+    --mds_brand_appearance_warning_default_on-background-color
+  );
+  --color-warning-border: var(
+    --mds_brand_appearance_warning_default_border-color
+  );
+  --color-warning-background--weak: var(
+    --mds_brand_appearance_warning_weak_background-color
+  );
+  --color-warning-text--weak: var(
+    --mds_brand_appearance_warning_weak_text-color
+  );
+  --color-warning-on-background--weak: var(
+    --mds_brand_appearance_warning_weak_on-background-color
+  );
+  --color-warning-border--weak: var(
+    --mds_brand_appearance_warning_weak_border-color
+  );
+  --color-warning-background--subtle: var(
+    --mds_brand_appearance_warning_subtle_background-color
+  );
+  --color-warning-text--subtle: var(
+    --mds_brand_appearance_warning_subtle_text-color
+  );
+  --color-warning-on-background--subtle: var(
+    --mds_brand_appearance_warning_subtle_on-background-color
+  );
+  --color-warning-border--subtle: var(
+    --mds_brand_appearance_warning_subtle_border-color
+  );
+
+  /* ERROR */
+  --color-error-background: var(
+    --mds_brand_appearance_error_default_background-color
+  );
+  --color-error-text: var(--mds_brand_appearance_error_default_text-color);
+  --color-error-on-background: var(
+    --mds_brand_appearance_error_default_on-background-color
+  );
+  --color-error-border: var(--mds_brand_appearance_error_default_border-color);
+  --color-error-background--weak: var(
+    --mds_brand_appearance_error_weak_background-color
+  );
+  --color-error-text--weak: var(--mds_brand_appearance_error_weak_text-color);
+  --color-error-on-background--weak: var(
+    --mds_brand_appearance_error_weak_on-background-color
+  );
+  --color-error-border--weak: var(
+    --mds_brand_appearance_error_weak_border-color
+  );
+  --color-error-background--subtle: var(
+    --mds_brand_appearance_error_subtle_background-color
+  );
+  --color-error-text--subtle: var(
+    --mds_brand_appearance_error_subtle_text-color
+  );
+  --color-error-on-background--subtle: var(
+    --mds_brand_appearance_error_subtle_on-background-color
+  );
+  --color-error-border--subtle: var(
+    --mds_brand_appearance_error_subtle_border-color
+  );
+}

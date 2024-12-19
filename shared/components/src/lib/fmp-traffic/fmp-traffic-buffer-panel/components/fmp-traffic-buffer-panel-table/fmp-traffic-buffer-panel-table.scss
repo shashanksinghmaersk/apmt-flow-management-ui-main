@@ -1,0 +1,25 @@
+.fmp-traffic-buffer-panel-table {
+  &-column {
+    &__truck {
+      display: flex;
+      align-items: center;
+
+      mc-icon::part(icon) {
+        fill: var(--mds_brand_appearance_error_default_background-color);
+      }
+
+      & > * {
+        margin-right: 4px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &__in_buffer {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

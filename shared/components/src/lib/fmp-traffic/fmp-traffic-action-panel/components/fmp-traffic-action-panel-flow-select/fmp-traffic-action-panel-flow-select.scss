@@ -1,0 +1,15 @@
+.fmp-traffic-action-panel-flow-select {
+  &__trigger {
+    display: flex;
+    align-items: center;
+
+    & > *:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  &__filter-menu {
+    width: 190px;
+    padding: 16px;
+  }
+}
